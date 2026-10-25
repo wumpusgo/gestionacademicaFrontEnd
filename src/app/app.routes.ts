@@ -16,7 +16,17 @@ export const routes: Routes = [
   {
     path: 'layout',
     component: LayoutComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard],
+    children: [
+      {
+        path: 'registro-asignaturas',
+        loadComponent: () => import('./components/registroAsignaturas/registro-asignaturas.component').then(m => m.RegistroAsignaturasComponent)
+      },
+      {
+        path: 'lista-asignaturas',
+        loadComponent: () => import('./components/listaAsignaturas/lista-asignaturas.component').then(m => m.ListaAsignaturasComponent)
+      }
+    ]
   },
   {
     path: '**',

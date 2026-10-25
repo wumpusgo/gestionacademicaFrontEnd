@@ -3,32 +3,34 @@
   <aside class="w-64 bg-slate-900 text-white flex-shrink-0 hidden md:block">
     <div class="p-6">
       <div class="flex items-center space-x-2">
-        <div class="w-8 h-8 bg-blue-500 rounded-full"></div>
-        <span class="text-xl font-bold">V-Dashboard</span>
+        <span class="text-ml font-bold">Gestion Estudiantes</span>
       </div>
     </div>
     <nav class="mt-4">
-      <a href="#" class="flex items-center px-6 py-3 bg-slate-800 border-l-4 border-white">
-        <span class="ml-3">Dashboard</span>
+      <a routerLink="registro-asignaturas"  class="flex items-center px-6 py-3 bg-slate-800 border-l-4 border-white">
+        <span class="ml-3">Registrar Asignaturas</span>
       </a>
-      <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors">
-        <span class="ml-3">UI Elements</span>
+      <a routerLink="lista-asignaturas" class="flex items-center px-6 py-3 bg-slate-800 border-l-4 border-white">
+        <span class="ml-3">Tus Asignaturas</span>
       </a>
-      <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors">
-        <span class="ml-3">Tables</span>
-      </a>
-      <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors">
-        <span class="ml-3">Forms</span>
-      </a>
-      <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors">
-        <span class="ml-3">Cards</span>
-      </a>
-      <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors">
-        <span class="ml-3">Modal</span>
-      </a>
-      <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors">
-        <span class="ml-3">Blank</span>
-      </a>
+      <!-- <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors"> -->
+      <!--   <span class="ml-3">UI Elements</span> -->
+      <!-- </a> -->
+      <!-- <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors"> -->
+      <!--   <span class="ml-3">Tables</span> -->
+      <!-- </a> -->
+      <!-- <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors"> -->
+      <!--   <span class="ml-3">Forms</span> -->
+      <!-- </a> -->
+      <!-- <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors"> -->
+      <!--   <span class="ml-3">Cards</span> -->
+      <!-- </a> -->
+      <!-- <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors"> -->
+      <!--   <span class="ml-3">Modal</span> -->
+      <!-- </a> -->
+      <!-- <a href="#" class="flex items-center px-6 py-3 hover:bg-slate-800 transition-colors"> -->
+      <!--   <span class="ml-3">Blank</span> -->
+      <!-- </a> -->
     </nav>
   </aside>
 
@@ -37,7 +39,7 @@
     <!-- Header -->
     <header class="h-16 bg-white border-b flex items-center justify-between px-8 shadow-sm sticky top-0 z-10">
       <div class="relative w-96">
-          <span class="text-slate-700 font-medium">{{ username }}</span>
+          <span class="text-slate-700 font-medium">{{ username }} </span>
       </div>
       <div class="flex items-center space-x-4">
         <div class="relative">
@@ -45,117 +47,9 @@
             Cerrar sesión
           </button>
         </div>
-        <div class="w-10 h-10 bg-gray-300 rounded-full border"></div>
       </div>
     </header>
 
-    <section class="p-8 flex-1 bg-slate-50 overflow-auto">
-      <h1 class="text-3xl font-bold mb-8 text-slate-800">Dashboard</h1>
-
-      <!-- Stats Cards -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mr-6">
-            <div class="w-8 h-8 bg-blue-600 rounded-full"></div>
-          </div>
-          <div>
-            <div class="text-3xl font-bold text-slate-900">8,282</div>
-            <div class="text-slate-500">New Users</div>
-          </div>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center">
-          <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mr-6">
-            <div class="w-8 h-8 bg-blue-600 rounded-full"></div>
-          </div>
-          <div>
-            <div class="text-3xl font-bold text-slate-900">200,521</div>
-            <div class="text-slate-500">Total Orders</div>
-          </div>
-        </div>
-        <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center">
-          <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-2xl mr-6">
-            <div class="w-8 h-8 bg-pink-600 rounded-full"></div>
-          </div>
-          <div>
-            <div class="text-3xl font-bold text-slate-900">215,542</div>
-            <div class="text-slate-500">Available Products</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Data Table -->
-      <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
-        <table class="w-full text-left border-collapse">
-          <thead class="bg-gray-50 border-b border-gray-200">
-            <tr>
-              <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-500">Name</th>
-              <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-500">Title</th>
-              <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-500">Status</th>
-              <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-500">Role</th>
-              <th class="px-6 py-3 text-xs font-semibold uppercase text-gray-500">Actions</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200">
-            <tr class="hover:bg-gray-50">
-              <td class="px-6 py-4">
-                <div class="flex items-center">
-                  <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
-                  <div>
-                    <div class="font-medium text-gray-900">John Doe</div>
-                    <div class="text-sm text-gray-500">john@example.com</div>
-                  </div>
-                </div>
-              </td>
-              <td class="px-6 py-4 text-gray-600">Software Engineer<br><span class="text-xs text-gray-400">Web dev</span></td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Active</span>
-              </td>
-              <td class="px-6 py-4 text-gray-600">Owner</td>
-              <td class="px-6 py-4">
-                <a href="#" class="text-blue-600 hover:underline text-sm">Edit</a>
-              </td>
-            </tr>
-            <tr class="hover:bg-gray-50">
-              <td class="px-6 py-4">
-                <div class="flex items-center">
-                  <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
-                  <div>
-                    <div class="font-medium text-gray-900">John Doe</div>
-                    <div class="text-sm text-gray-500">john@example.com</div>
-                  </div>
-                </div>
-              </td>
-              <td class="px-6 py-4 text-gray-600">Software Engineer<br><span class="text-xs text-gray-400">Web dev</span></td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Active</span>
-              </td>
-              <td class="px-6 py-4 text-gray-600">Owner</td>
-              <td class="px-6 py-4">
-                <a href="#" class="text-blue-600 hover:underline text-sm">Edit</a>
-              </td>
-            </tr>
-            <tr class="hover:bg-gray-50">
-              <td class="px-6 py-4">
-                <div class="flex items-center">
-                  <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div>
-                  <div>
-                    <div class="font-medium text-gray-900">John Doe</div>
-                    <div class="text-sm text-gray-500">john@example.com</div>
-                  </div>
-                </div>
-              </td>
-              <td class="px-6 py-4 text-gray-600">Software Engineer<br><span class="text-xs text-gray-400">Web dev</span></td>
-              <td class="px-6 py-4">
-                <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Active</span>
-              </td>
-              <td class="px-6 py-4 text-gray-600">Owner</td>
-              <td class="px-6 py-4">
-                <a href="#" class="text-blue-600 hover:underline text-sm">Edit</a>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </section>
+         <router-outlet></router-outlet>
   </main>
 </div>
