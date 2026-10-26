@@ -3,38 +3,6 @@
  <section class="p-8 flex-1 bg-slate-50 overflow-auto">
       <h1 class="text-3xl font-bold mb-8 text-slate-800">Asignaturas inscritas</h1>
 
-      <!-- Stats Cards -->
-      <!-- <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8"> -->
-      <!--   <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center"> -->
-      <!--     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mr-6"> -->
-      <!--       <div class="w-8 h-8 bg-blue-600 rounded-full"></div> -->
-      <!--     </div> -->
-      <!--     <div> -->
-      <!--       <div class="text-3xl font-bold text-slate-900">8,282</div> -->
-      <!--       <div class="text-slate-500">New Users</div> -->
-      <!--     </div> -->
-      <!--   </div> -->
-      <!--   <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center"> -->
-      <!--     <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-2xl mr-6"> -->
-      <!--       <div class="w-8 h-8 bg-blue-600 rounded-full"></div> -->
-      <!--     </div> -->
-      <!--     <div> -->
-      <!--       <div class="text-3xl font-bold text-slate-900">200,521</div> -->
-      <!--       <div class="text-slate-500">Total Orders</div> -->
-      <!--     </div> -->
-      <!--   </div> -->
-      <!--   <div class="bg-white p-6 rounded-lg shadow-sm border border-gray-100 flex items-center"> -->
-      <!--     <div class="w-16 h-16 bg-pink-100 rounded-full flex items-center justify-center text-pink-600 text-2xl mr-6"> -->
-      <!--       <div class="w-8 h-8 bg-pink-600 rounded-full"></div> -->
-      <!--     </div> -->
-      <!--     <div> -->
-      <!--       <div class="text-3xl font-bold text-slate-900">215,542</div> -->
-      <!--       <div class="text-slate-500">Available Products</div> -->
-      <!--     </div> -->
-      <!--   </div> -->
-      <!-- </div> -->
-
-      <!-- Data Table -->
       <div class="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden">
         <table class="w-full text-left border-collapse">
           <thead class="bg-gray-50 border-b border-gray-200">
@@ -46,58 +14,50 @@
 
 
 @for (item of (items$ | async); track item.id) {
-  <div>{{ item.idClase }}</div>
-
+  <!-- <div appMateriaDirectiva [idMateria]="item.idMateria"></div> -->
             <tr class="hover:bg-gray-50">
-              <td class="px-6 py-4 text-gray-600">{{ item.idClase }}<br></td>
+              <td class="px-6 py-4 text-gray-600"><div appMateriaDirectiva [idMateria]="item.idMateria"></div><br></td>
               <td class="px-6 py-4">
-                <a href="#" class="text-blue-600 hover:underline text-sm">Edit</a>
+                <a (click)="detail(item)" class="text-blue-600 hover:underline text-sm">Ver compañeros Inscritos</a>
               </td>
             </tr>
 } @empty {
   <p>No hay elementos.</p>
 }
-
-            <!-- <tr class="hover:bg-gray-50"> -->
-            <!--   <td class="px-6 py-4"> -->
-            <!--     <div class="flex items-center"> -->
-            <!--       <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div> -->
-            <!--       <div> -->
-            <!--         <div class="font-medium text-gray-900">John Doe</div> -->
-            <!--         <div class="text-sm text-gray-500">john@example.com</div> -->
-            <!--       </div> -->
-            <!--     </div> -->
-            <!--   </td> -->
-            <!--   <td class="px-6 py-4 text-gray-600">Software Engineer<br><span class="text-xs text-gray-400">Web dev</span></td> -->
-            <!--   <td class="px-6 py-4"> -->
-            <!--     <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Active</span> -->
-            <!--   </td> -->
-            <!--   <td class="px-6 py-4 text-gray-600">Owner</td> -->
-            <!--   <td class="px-6 py-4"> -->
-            <!--     <a href="#" class="text-blue-600 hover:underline text-sm">Edit</a> -->
-            <!--   </td> -->
-            <!-- </tr> -->
-            <!-- <tr class="hover:bg-gray-50"> -->
-            <!--   <td class="px-6 py-4"> -->
-            <!--     <div class="flex items-center"> -->
-            <!--       <div class="w-10 h-10 bg-gray-200 rounded-full mr-3"></div> -->
-            <!--       <div> -->
-            <!--         <div class="font-medium text-gray-900">John Doe</div> -->
-            <!--         <div class="text-sm text-gray-500">john@example.com</div> -->
-            <!--       </div> -->
-            <!--     </div> -->
-            <!--   </td> -->
-            <!--   <td class="px-6 py-4 text-gray-600">Software Engineer<br><span class="text-xs text-gray-400">Web dev</span></td> -->
-            <!--   <td class="px-6 py-4"> -->
-            <!--     <span class="px-2 py-1 bg-green-100 text-green-700 text-xs rounded-full">Active</span> -->
-            <!--   </td> -->
-            <!--   <td class="px-6 py-4 text-gray-600">Owner</td> -->
-            <!--   <td class="px-6 py-4"> -->
-            <!--     <a href="#" class="text-blue-600 hover:underline text-sm">Edit</a> -->
-            <!--   </td> -->
-            <!--   </tr> -->
           </tbody>
         </table>
       </div>
     </section>
 </div>
+
+@if (showPopup()) {
+  <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4">
+    <div class="bg-white rounded-lg shadow-xl max-w-lg w-full p-6 relative">
+      <button (click)="closePopup()" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700">
+        ✕
+      </button>
+    <h2 class="text-2xl font-bold mb-4 text-gray-800">Compañeros Inscritos en <div appMateriaDirectiva [idMateria]="selectedItem()!.idMateria"></div> </h2>
+      <p class="text-gray-600 mb-4">
+
+
+
+
+
+@for (item of (programs$ | async); track item.id) {
+      <ul class="space-y-2">
+      <li class="flex justify-between items-center p-2 bg-gray-50 rounded hover:bg-gray-100">
+  <div appEstudianteDirectiva [idEstudiante]="item.idEstudiante"></div>
+      </li>
+    </ul>
+} @empty {
+  <p>No hay elementos.</p>
+}
+
+      <div class="mt-6 flex justify-end">
+        <button (click)="closePopup()" class="px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700">
+          Cerrar
+        </button>
+      </div>
+    </div>
+  </div>
+}

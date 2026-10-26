@@ -21,6 +21,14 @@ export class ProgramaAcademicoService {
     );
   }
 
+  getByClaseId(id: string): Observable<ProgramaAcademicoDto[]> {
+    return this.http.get<ProgramaAcademicoDto[]>(`${this.apiUrl}/clase/${id}`).pipe(
+      catchError(error => {
+        console.error('Error fetching programs by Estudiante', error);
+        return throwError(() => error);
+      })
+    );
+  }
 
   getByEstudianteId(id: string): Observable<ProgramaAcademicoDto[]> {
     return this.http.get<ProgramaAcademicoDto[]>(`${this.apiUrl}/estudiante/${id}`).pipe(
