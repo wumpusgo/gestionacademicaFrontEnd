@@ -8,13 +8,13 @@
     <h3 class="font-bold text-lg mb-4 text-gray-700">Lista 1</h3>
 
 
-@for (item of (asignaturasDisponibles$ | async); track item.id) {
-  <div>{{ item.idClase }}</div>
+@for (item of  asignaturasDisponibles; track item.id) {
+  <div appMateriaDirectiva [idMateria]="item.idMateria"></div>
       <ul class="space-y-2">
       <li class="flex justify-between items-center p-2 bg-gray-50 rounded hover:bg-gray-100">
-          <span>{{item.idClase}}</span>
-        <button class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-          Mover ➔
+  <div appProfesorDirectiva [idProfesor]="item.idProfesor"></div>
+        <button (click)="add(item)" class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+          Agregar ➔
         </button>
       </li>
     </ul>
@@ -27,13 +27,13 @@
   <div class="w-1/2 p-4 bg-white rounded-lg shadow-md border border-gray-200">
     <h3 class="font-bold text-lg mb-4 text-gray-700">Lista 2</h3>
 
-@for (item of (asignaturasDisponibles$ | async); track item.id) {
-  <div>{{ item.idClase }}</div>
+@for (item  of asignaturasSeleccionadas; track item.id) {
+  <div appMateriaDirectiva [idMateria]="item.idMateria"></div>
       <ul class="space-y-2">
       <li class="flex justify-between items-center p-2 bg-gray-50 rounded hover:bg-gray-100">
-          <span>{{item.idClase}}</span>
-        <button class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition">
-          Mover ➔
+  <div appProfesorDirectiva [idProfesor]="item.idProfesor"></div>
+        <button (click)="remove(item)" class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+          ← Quitar
         </button>
       </li>
     </ul>
@@ -43,5 +43,9 @@
   </div>
 </div>
 
+    <button (click)="createNewProgram(asignaturasSeleccionadas)" class="px-3 py-1 text-sm bg-blue-500 text-white rounded hover:bg-blue-600 transition">
+          Save 💾
+        </button>
+  {{returnedMsg }}
 
 </div>

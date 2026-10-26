@@ -40,10 +40,13 @@ export class ProgramaAcademicoService {
     );
   }
 
-  create(dto: ProgramaAcademicoDto): Observable<ProgramaAcademicoDto> {
-    return this.http.post<ProgramaAcademicoDto>(this.apiUrl, dto).pipe(
+  createNewProgram(idEstudiante: string, programasAcademicos: ProgramaAcademicoDto[]): Observable<boolean> {
+    return this.http.post<boolean>(`${this.apiUrl}/createProgram`, {
+      idEstudiante,
+      programasAcademicos
+    }).pipe(
       catchError(error => {
-        console.error('Error creating program', error);
+        console.error('Error creating new program', error);
         return throwError(() => error);
       })
     );

@@ -21,15 +21,6 @@ export class MateriaService {
     );
   }
 
-  getByEstudianteId(id: string): Observable<Materia[]> {
-    return this.http.get<Materia[]>(`${this.apiUrl}/estudiante/${id}`).pipe(
-      catchError(error => {
-        console.error('Error fetching subject by Estudiante', error);
-        return throwError(() => error);
-      })
-    );
-  }
-
   getById(id: string): Observable<Materia> {
     return this.http.get<Materia>(`${this.apiUrl}/${id}`).pipe(
       catchError(error => {

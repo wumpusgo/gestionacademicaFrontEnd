@@ -21,8 +21,17 @@ export class ClaseService {
     );
   }
 
+  getClasesDisponiblesByEstudianteId(id: string): Observable<Clase[]> {
+    return this.http.get<Clase[]>(`http://localhost:5201/api/ProgramaAcademico/avaliableClasses/${id}`).pipe(
+      catchError(error => {
+        console.error('Error fetching classes by Estudiante', error);
+        return throwError(() => error);
+      })
+    );
+  }
+
   getByEstudianteId(id: string): Observable<Clase[]> {
-    return this.http.get<Clase[]>(`${this.apiUrl}/estudiante/${id}`).pipe(
+    return this.http.get<Clase[]>(`http://localhost:5201/api/ProgramaAcademico/registeredClasses/${id}`).pipe(
       catchError(error => {
         console.error('Error fetching classes by Estudiante', error);
         return throwError(() => error);
